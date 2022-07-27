@@ -1,24 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GettingDirectionsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="U2v-NP-XJB">
+                                <rect key="frame" x="0.0" y="86" width="414" height="776"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="776" id="iGg-7s-ccW"/>
+                                    <constraint firstAttribute="width" constant="414" id="ngq-j9-n8W"/>
+                                </constraints>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V7r-0I-Nxg">
+                                <rect key="frame" x="254" y="44" width="140" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="Mbr-oG-g8Y"/>
+                                    <constraint firstAttribute="width" constant="140" id="ohM-9B-ofe"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="location.fill.viewfinder" catalog="system">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Directions">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <font key="NSFont" size="9" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="fetchDirectionsTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aeJ-jD-PQV"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R82-JE-OTX">
+                                <rect key="frame" x="10" y="44" width="236" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="3Ix-CG-Elg"/>
+                                    <constraint firstAttribute="width" constant="236" id="7HT-cp-rqH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="V7r-0I-Nxg" secondAttribute="trailing" constant="20" id="CWt-22-lrq"/>
+                            <constraint firstItem="R82-JE-OTX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="H7e-uc-UrM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="V7r-0I-Nxg" secondAttribute="trailing" constant="20" id="IQP-Ma-hJd"/>
+                            <constraint firstItem="U2v-NP-XJB" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="QB8-9F-HIH"/>
+                            <constraint firstItem="V7r-0I-Nxg" firstAttribute="leading" secondItem="R82-JE-OTX" secondAttribute="trailing" constant="8" symbolic="YES" id="SC7-m3-aoQ"/>
+                            <constraint firstItem="V7r-0I-Nxg" firstAttribute="leading" secondItem="R82-JE-OTX" secondAttribute="trailing" constant="8" symbolic="YES" id="UKA-ah-118"/>
+                            <constraint firstItem="V7r-0I-Nxg" firstAttribute="leading" secondItem="R82-JE-OTX" secondAttribute="trailing" constant="8" symbolic="YES" id="a3U-w9-a9F"/>
+                            <constraint firstItem="U2v-NP-XJB" firstAttribute="top" secondItem="R82-JE-OTX" secondAttribute="bottom" constant="8" symbolic="YES" id="cVF-ue-dXa"/>
+                            <constraint firstItem="V7r-0I-Nxg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="crt-p3-TYv"/>
+                            <constraint firstItem="R82-JE-OTX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="e1b-h5-fN8"/>
+                            <constraint firstItem="R82-JE-OTX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="euA-9U-4EO"/>
+                            <constraint firstItem="R82-JE-OTX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="h5Z-lD-kBq"/>
+                            <constraint firstItem="U2v-NP-XJB" firstAttribute="top" secondItem="V7r-0I-Nxg" secondAttribute="bottom" constant="6" id="pYM-x2-Fwm"/>
+                            <constraint firstItem="U2v-NP-XJB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="q3A-An-lPf"/>
+                            <constraint firstItem="U2v-NP-XJB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="qad-xC-Omc"/>
+                            <constraint firstItem="U2v-NP-XJB" firstAttribute="top" secondItem="V7r-0I-Nxg" secondAttribute="bottom" constant="6" id="vt9-Gu-FxZ"/>
+                            <constraint firstItem="U2v-NP-XJB" firstAttribute="top" secondItem="R82-JE-OTX" secondAttribute="bottom" constant="8" symbolic="YES" id="wDD-LP-ppm"/>
+                            <constraint firstItem="U2v-NP-XJB" firstAttribute="top" secondItem="V7r-0I-Nxg" secondAttribute="bottom" constant="6" id="wFa-7d-Nl9"/>
+                            <constraint firstItem="U2v-NP-XJB" firstAttribute="top" secondItem="V7r-0I-Nxg" secondAttribute="bottom" constant="6" id="whz-ka-c4V"/>
+                            <constraint firstItem="V7r-0I-Nxg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="xsa-sd-3mb"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="enterAddressTF" destination="R82-JE-OTX" id="0XA-Pb-vAr"/>
+                        <outlet property="fetchDirectionsBTN" destination="V7r-0I-Nxg" id="DfH-w9-cuG"/>
+                        <outlet property="mapViewMV" destination="U2v-NP-XJB" id="jhS-C1-pXp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="68.973214285714278"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="location.fill.viewfinder" catalog="system" width="128" height="115"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
